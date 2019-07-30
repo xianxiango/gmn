@@ -10,7 +10,7 @@ import (
 
 func init() {
 	//admin
-	nsAdmin := beego.NewNamespace("/api",
+	nsAdmin := beego.NewNamespace("/gmn",
 		//系统
 		beego.NSRouter("/image/upload", &controllers.BaseController{}, "*:UploadImage"),
 		beego.NSRouter("/image/delete", &controllers.BaseController{}, "*:DeleteUpload"),

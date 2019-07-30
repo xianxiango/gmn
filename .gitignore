@@ -30,3 +30,5 @@ stat.*
 # stat
 gmn-linux-amd64
 stat-linux-amd64
+conf
+app.conf
