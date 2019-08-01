@@ -15,8 +15,8 @@ func init() {
 		beego.NSRouter("/image/upload", &controllers.BaseController{}, "*:UploadImage"),
 		beego.NSRouter("/image/delete", &controllers.BaseController{}, "*:DeleteUpload"),
 
-		//广告
-		beego.NSRouter("/banner/list", &controllers.BannerController{}, "*:List"),
+		beego.NSRouter("/info/list", &controllers.InfoController{}, "*:List"),
+		beego.NSRouter("/info/text", &controllers.InfoController{}, "*:Text"),
 	)
 
 	beego.AddNamespace(nsAdmin)
