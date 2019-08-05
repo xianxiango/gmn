@@ -44,9 +44,7 @@ func GetImageList(module,offset, pageSize int) ([]Imagelist, int64) {
 	totalsql := fmt.Sprintf(`select COUNT(*) as Total from imagelist where module = %d `, module)
 	err := db.GetDB().Sql(cmd).Find(&ads)
 	_, err = db.GetDB().Sql(totalsql).Get(&total)
-	if err != nil {
-		panic(err)
-	}
+
 
 	if err != nil {
 		panic(err)
@@ -54,7 +52,18 @@ func GetImageList(module,offset, pageSize int) ([]Imagelist, int64) {
 
 	return ads, total.Total
 }
+func GetImageContent(id int) Imagelist {
+	var ads = Imagelist{}
+	cmd := fmt.Sprintf("select * from imagelist where id = %d", id)
+	_,err := db.GetDB().Sql(cmd).Get(&ads)
+	
 
+	if err != nil {
+		panic(err)
+	}
+
+	return ads
+}
 
 func GetTextlist(module int) []Textlist {
 	var ad []Textlist

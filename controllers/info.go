@@ -23,6 +23,18 @@ func (this *InfoController) List() { //获取列表
 		},
 	})
 }
+func (this *InfoController) GetContent() { //获取列表
+	id, _ := this.GetInt("id")
+	activities := center.GetImageContent(id)
+
+	this.jsonResult(map[string]interface{}{
+		"message": "操作成功",
+		"code":    0,
+		"data": map[string]interface{}{
+			"list":      activities,
+		},
+	})
+}
 func (this *InfoController) Text() { //获取列表
 	module, _ := this.GetInt("module")
 	activities := center.GetTextlist(module)
